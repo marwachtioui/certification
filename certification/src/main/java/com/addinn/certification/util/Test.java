@@ -14,7 +14,7 @@ public class Test {
 
 			// the path of your tess data folder
 			// inside the extracted file
-			String text = tesseract.doOCR(new File("C:\\Users\\unkown\\Desktop\\image.jpg"));
+			String text = tesseract.doOCR(new File("C:\\Users\\unkown\\Desktop\\image.png"));
 
 			// path of your image file
 

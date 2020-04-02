@@ -3,6 +3,7 @@ package com.addinn.certification.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import com.addinn.certification.services.CompanyService;
 
 @RestController
 @RequestMapping("/company")
-
+@CrossOrigin("*")
 public class CompanyController {
 
 	@Autowired
@@ -37,6 +38,11 @@ public class CompanyController {
 	@GetMapping
 	public List<Company> findAll() {
 		return companyService.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public Company findById(@PathVariable Integer id) {
+		return companyService.findById(id);
 	}
 
 	@DeleteMapping("/{id}")

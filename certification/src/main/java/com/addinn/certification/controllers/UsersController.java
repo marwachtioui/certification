@@ -1,6 +1,7 @@
 package com.addinn.certification.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import com.addinn.certification.services.UsersService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UsersController {
 	@Autowired
 	private UsersService usersService;
