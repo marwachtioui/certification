@@ -22,7 +22,7 @@ public class Agency {
 	private String adresse;
 	private String email;
 	private String tel ;
-	private String country;
+	private String fax;
 	@JsonIgnore
 	@OneToMany(mappedBy = "agency")
 	private List<Client> clients;

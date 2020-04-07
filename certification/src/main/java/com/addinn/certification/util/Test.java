@@ -6,21 +6,21 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
 public class Test {
-	public static void main(String[] args) {
-		Tesseract tesseract = new Tesseract();
-		try {
-
-			tesseract.setDatapath("D:/tessdata-master");
-
-			// the path of your tess data folder
-			// inside the extracted file
-			String text = tesseract.doOCR(new File("C:\\Users\\unkown\\Desktop\\image.png"));
-
-			// path of your image file
-
-			System.out.print(text);
-		} catch (TesseractException e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		Tesseract tesseract = new Tesseract();
+//		try {
+//
+//			tesseract.setDatapath("D:/tessdata-master");
+//
+//			// the path of your tess data folder
+//			// inside the extracted file
+//			String text = tesseract.doOCR(new File("C:\\Users\\unkown\\Desktop\\image.png"));
+//
+//			// path of your image file
+//
+//			System.out.print(text);
+//		} catch (TesseractException e) {
+//			e.printStackTrace();
+//		}
+//	}
 }

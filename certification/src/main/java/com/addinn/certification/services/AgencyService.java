@@ -17,6 +17,8 @@ public interface AgencyService {
 
 	public List<Agency> findAll();
 
+	public List<Agency> findbyIdCompany(Integer idCompany);
+
 	
 	
 }

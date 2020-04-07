@@ -14,34 +14,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.addinn.certification.entities.Agency;
+import com.addinn.certification.entities.Company;
 import com.addinn.certification.model.MessageResponse;
 import com.addinn.certification.services.AgencyService;
-
 
 @RestController
 @RequestMapping("/agency")
 @CrossOrigin("*")
 public class AgencyController {
-	
-	
+
 	@Autowired
 	private AgencyService agencyService;
-	
+
 	@PostMapping
 	public MessageResponse save(@RequestBody Agency agency) {
 		return agencyService.save(agency);
-	
+
 	}
-	
+
 	@PutMapping
 	public MessageResponse update(@RequestBody Agency agency) {
 		return agencyService.update(agency);
 
 	}
 
-	@GetMapping
-	public List<Agency> findAll() {
-		return agencyService.findAll();
+	@GetMapping("/findByCompany/{idCompany}")
+	public List<Agency> findByCompany(@PathVariable Integer idCompany) {
+		return agencyService.findbyIdCompany(idCompany);
+	}
+
+	@GetMapping("/{id}")
+	public Agency findById(@PathVariable Integer id) {
+		return agencyService.findById(id);
 	}
 
 	@DeleteMapping("/{id}")
@@ -49,8 +53,5 @@ public class AgencyController {
 		return agencyService.delete(id);
 
 	}
-	
-	
-	
-	
+
 }

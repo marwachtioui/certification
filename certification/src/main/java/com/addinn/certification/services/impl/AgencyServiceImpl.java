@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.addinn.certification.entities.Agency;
+import com.addinn.certification.entities.Company;
 import com.addinn.certification.model.MessageResponse;
 import com.addinn.certification.repositories.AgencyRepository;
 import com.addinn.certification.services.AgencyService;
@@ -101,6 +103,13 @@ public class AgencyServiceImpl implements AgencyService{
 		// TODO Auto-generated method stub
 		return agencyRepository.findById(id).orElse(null);
 		
+	}
+
+	@Override
+	public List<Agency> findbyIdCompany(Integer idCompany) {
+		Company company = new Company();
+		company.setId(idCompany);
+		return agencyRepository.findByCompany(company);
 	}
 
 }

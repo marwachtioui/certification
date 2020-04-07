@@ -1,8 +1,11 @@
 package com.addinn.certification.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.addinn.certification.entities.Agency;
+import com.addinn.certification.entities.Company;
 
 public interface AgencyRepository extends JpaRepository<Agency, Integer> {
 
@@ -15,6 +18,8 @@ public interface AgencyRepository extends JpaRepository<Agency, Integer> {
 	boolean existsByNom(String nom);
 
 	boolean existsByIdAndBankersIsNotNull(Integer id);
+
+	List<Agency> findByCompany(Company company);
 
 	
 }
