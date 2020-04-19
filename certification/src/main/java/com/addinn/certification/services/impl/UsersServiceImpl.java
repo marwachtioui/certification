@@ -1,6 +1,8 @@
 package com.addinn.certification.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +47,12 @@ public class UsersServiceImpl implements UsersService {
 		user.setPassword(cryptedPassword);
 		usersRepository.save(user);
 		return new MessageResponse(true, "Opération effectuée avec succès");
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+		return usersRepository.findOneByEmail(username);
 	}
 
 }

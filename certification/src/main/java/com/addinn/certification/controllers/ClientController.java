@@ -18,6 +18,7 @@ import com.addinn.certification.services.ClientService;
 @RestController
 @RequestMapping("/client")
 @CrossOrigin("*")
+
 public class ClientController {
 	
 	
