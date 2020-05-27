@@ -9,28 +9,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+
 @Data
 @Entity
 public class CheckBook {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer numCheque ;
+	private Integer numCheque;
 	private String nameReciever;
-	private String nameIreceiver;
-	private String amount ;
+	private String amount;
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	@ManyToOne
-	private Request request ;
-	
-	
-	
-	
-	
+	@JsonIgnore
+	@OneToOne
+	private Request request;
 
 }

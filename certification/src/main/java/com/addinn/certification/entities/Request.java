@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,23 +18,19 @@ import lombok.Data;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Request {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private boolean opened ;
+	private String etat;
 	private Date date;
-	private boolean certif ;
-	
+	private boolean certif;
 	@ManyToOne
 	private Client client;
 	@ManyToOne
 	private Banker banker;
-	@JsonIgnore
-	@OneToMany(mappedBy = "request")
-	 private List <CheckBook> checkbook;
-	
-	
+
+	@OneToOne(mappedBy = "request")
+	private CheckBook checkbook;
 
 }
