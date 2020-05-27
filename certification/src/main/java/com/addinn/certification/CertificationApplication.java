@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.addinn.certification.entities.Admin;
 import com.addinn.certification.repositories.AdminRepository;
+import com.addinn.certification.util.EmailUtil;
 
 @SpringBootApplication()
 public class CertificationApplication implements CommandLineRunner {
@@ -15,6 +16,8 @@ public class CertificationApplication implements CommandLineRunner {
 	private AdminRepository adminRepository;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private EmailUtil emailUtil;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CertificationApplication.class, args);
@@ -31,7 +34,8 @@ public class CertificationApplication implements CommandLineRunner {
 //		admin.setEnabled(true);
 //		admin.setPassword(passwordEncoder.encode("admin"));
 //		adminRepository.save(admin);
-
+			
+		//emailUtil.sendEmail("mouradbounasri@gmail.com", "aaa", "aaa");
 	}
 
 }

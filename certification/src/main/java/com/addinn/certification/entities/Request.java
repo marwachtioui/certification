@@ -3,6 +3,7 @@ package com.addinn.certification.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +31,7 @@ public class Request {
 	@ManyToOne
 	private Banker banker;
 
-	@OneToOne(mappedBy = "request")
+	@OneToOne(mappedBy = "request", cascade = CascadeType.ALL)
 	private CheckBook checkbook;
 
 }

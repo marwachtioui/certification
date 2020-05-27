@@ -11,22 +11,25 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.addinn.certification.model.MessageResponse;
 import com.addinn.certification.services.StorageService;
 
 @Service
 public class StorageServiceImpl implements StorageService {
-	private final Path rootLocation = Paths.get("uploads");
+	private final Path rootLocation = Paths.get("D:\\xampp\\htdocs\\images");
 
 	@Override
-	public void store(MultipartFile file) {
+	public MessageResponse store(MultipartFile file) {
 		try {
 			String currentfileName = file.getName() + "_" + System.currentTimeMillis()
 					 +findExtension(file.getOriginalFilename());
 			Files.copy(file.getInputStream(), this.rootLocation.resolve(currentfileName));
+		return new MessageResponse(true, currentfileName);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return new MessageResponse(false, "Opération non efféctuée");
 
 	}
 

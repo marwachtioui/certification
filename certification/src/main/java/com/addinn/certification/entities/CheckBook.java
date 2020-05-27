@@ -24,10 +24,11 @@ public class CheckBook {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Integer numCheque;
-	private String nameReciever;
-	private String amount;
+	private String nameReceiver;
+	private double ammount;
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	private String fileName;
 	@JsonIgnore
 	@OneToOne
 	private Request request;
