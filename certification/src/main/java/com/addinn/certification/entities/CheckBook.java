@@ -26,6 +26,7 @@ public class CheckBook {
 	private Integer numCheque;
 	private String nameReceiver;
 	private double ammount;
+	private String lieu;
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	private String fileName;

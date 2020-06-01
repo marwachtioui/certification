@@ -1,15 +1,17 @@
 package com.addinn.certification.services.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.addinn.certification.controllers.RequestService;
+import com.addinn.certification.entities.Client;
 import com.addinn.certification.entities.Request;
 import com.addinn.certification.model.MessageResponse;
 import com.addinn.certification.repositories.CheckBookRepository;
 import com.addinn.certification.repositories.RequestRepository;
+import com.addinn.certification.services.RequestService;
 
 @Service
 public class RequestServiceImpl implements RequestService {
@@ -37,6 +39,13 @@ public class RequestServiceImpl implements RequestService {
 		requestRepository.save(request);
 
 		return new MessageResponse(true, "Opération efféctuée avec succès");
+	}
+
+	@Override
+	public List<Request> findByClient(Integer id) {
+		Client clt = new Client();
+		clt.setId(id);
+		return requestRepository.findByClient(clt);
 	}
 
 }
