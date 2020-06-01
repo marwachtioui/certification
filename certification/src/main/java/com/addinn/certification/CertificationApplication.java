@@ -9,7 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.addinn.certification.entities.Admin;
 import com.addinn.certification.repositories.AdminRepository;
 import com.addinn.certification.util.EmailUtil;
-
 @SpringBootApplication()
 public class CertificationApplication implements CommandLineRunner {
 	@Autowired
